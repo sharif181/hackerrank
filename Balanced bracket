@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    char ar[1001];
+    int i,n;
+    cin>>n;
+    while(n--){
+        stack <char> st;
+        cin>>ar;
+        for (i=0;i<strlen(ar);i++){
+            if (st.empty())
+                st.push(ar[i]);
+            else if (ar[i]=='('||ar[i]=='{'||ar[i]=='[')
+                st.push(ar[i]);
+            else if(st.top()=='('&&ar[i]==')' || st.top()=='['&&ar[i]==']'||st.top()=='{'&&ar[i]=='}'){
+                st.pop();
+            }
+        }
+        if(st.empty())
+            cout<<"YES"<<endl;
+        else
+            cout<<"NO"<<endl;
+    }
+    return 0;
+}
