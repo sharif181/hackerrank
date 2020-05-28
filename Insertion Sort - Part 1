@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int n,i,j,k;
+    cin>>n;
+    int ar[n];
+    for (i=0;i<n;i++)
+    {
+        cin>>ar[i];
+    }
+    int key = ar[n-1];
+    i = n-1;
+    j = i-1;
+    while(ar[j]>key && j>=0){
+            ar[i]=ar[j];
+        for(k=0;k<n;k++)
+            cout<<ar[k]<<" ";
+        cout<<endl;
+        i--;
+        j--;
+    }
+    ar[i]=key;
+    for(k=0;k<n;k++)
+        cout<<ar[k]<<" ";
+    cout<<endl;
+    return 0;
+}
