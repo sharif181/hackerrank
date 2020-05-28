@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int checker(int x1,int v1,int x2,int v2)
+{
+    if(v1>v2){
+    int x = x2-x1;
+    int v = v1-v2;
+    int res = x % v;
+    if(res == 0)
+        return 1;
+    else
+        return 0;
+    }
+    else{
+        return 0;
+    }
+
+}
+
+
+int main()
+{
+    int x1,v1,x2,v2;
+    cin>>x1>>v1>>x2>>v2;
+    if (x1==x2 && v1 == v2)
+        cout<<"YES"<<endl;
+    else{
+        int res = checker(x1,v1,x2,v2);
+        if(res)
+            cout<<"YES"<<endl;
+        else
+            cout<<"NO"<<endl;
+    }
+    return 0;
+}
