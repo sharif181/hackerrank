@@ -1,0 +1,43 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int a,b,x,g,i,j,sum,fi,se,mov,tem;
+    cin>>g;
+    while(g--){
+        sum=0;
+        tem = 0;
+        mov = 0;
+        fi = 0;
+        se = 0;
+        cin>>a>>b>>x;
+        int ar[a],br[b];
+        for(i=0;i<a;i++){
+            cin>>ar[i];
+            sum+=ar[i];
+            if(sum>x) continue;
+            else{ fi++; tem +=ar[i];}
+        }
+        sum = 0;
+        for(i=0;i<b;i++){
+            cin>>br[i];
+            sum+=br[i];
+            if(sum>x) continue;
+            else se++;
+        }
+        sum = 0;
+        i=fi,j=0;
+        mov = fi;
+       while(j<se && i>=0){
+            tem += br[j];
+            j++;
+            while(tem>x && i>0){
+                i--;
+                tem -= ar[i];
+            }
+            if(tem <= x && i+j>mov)
+                mov = i+j;
+       }
+       cout<<mov<<endl;
+    }
+    return 0;
+}
