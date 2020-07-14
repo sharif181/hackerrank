@@ -1,0 +1,58 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void change(int *a)
+{
+    *a = -1;
+}
+int Search(int br[],int key,int s)
+{
+    for(int i=0;i<s;i++)
+    {
+        if (br[i]==key)
+        {
+            change(&br[i]);
+            return i+1;
+        }
+    }
+    return -1;
+}
+
+void iceCreamParlor(int ar[],int m,int s)
+{
+    int a = m-1;
+    int b = 1;
+    while (a != 0)
+    {
+        int br[s];
+        for(int i=0;i<s;i++)
+            br[i] = ar[i];
+        int a1 = Search(br,a,s);
+        int b1 = Search(br,b,s);
+        if (a1 != -1 && b1 != -1)
+            {
+                printf("%d %d\n",min(a1,b1),max(a1,b1));
+                break;
+            }
+        a--;
+        b++;
+
+    }
+
+}
+
+int main()
+{
+    int t,m,n;
+    cin>>t;
+    while(t--)
+    {
+        cin>>m;
+        cin>>n;
+        int ar[n];
+        for(int i=0;i<n;i++)
+            cin>>ar[i];
+        iceCreamParlor(ar,m,n);
+
+    }
+}
