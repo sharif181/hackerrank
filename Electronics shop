@@ -1,0 +1,20 @@
+#include <stdio.h>
+int main()
+{
+    int budget,key,usb,max=-1;
+    scanf("%d %d %d",&budget,&key,&usb);
+    int keyboard[key],USB[usb];
+    for(int i=0;i<key;i++)
+    scanf("%d",&keyboard[i]);
+    for(int i=0;i<usb;i++)
+    scanf("%d",&USB[i]);
+    for(int i=0;i<key;i++)
+    {
+        for(int j=0;j<usb;j++)
+        {
+            if(keyboard[i]+USB[j]<=budget && keyboard[i]+USB[j] > max)
+            max = keyboard[i]+USB[j];
+        }
+    }
+    printf("%d",max);
+}
