@@ -1,0 +1,33 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    long N,M,sum=0,op,last,first,head,tall;
+    cin>>N>>M;
+    sum=(N*(N+1))/2;
+    first=1;
+    last=N;
+    head=1;
+    tall=N;
+    for(long i=0;i<M;i++)
+    {
+        cin>>op;
+        if((op>=first && op<=last )|| head==op || tall==op){
+            long temp=head;
+            head=tall;
+            tall=temp;
+        }
+        else{
+            if(tall==first)
+                first+=1;
+            else if (tall==last)
+                last-=1;
+            sum-=tall;
+            tall=op;
+            sum+=tall;
+        }
+        cout<<sum<<endl;
+    }
+    return 0;
+}
