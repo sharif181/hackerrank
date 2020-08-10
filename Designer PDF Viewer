@@ -1,0 +1,19 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int ar[26],max=0,temp;
+    for(int i=0;i<26;i++)
+        cin>>ar[i];
+    char input[11];
+    scanf("%s",input);
+    for(int i=0;i<strlen(input);i++)
+    {
+        temp=input[i]-'a';
+        if(ar[temp]>max)
+            max=ar[temp];
+    }
+    cout<<max*strlen(input)<<endl;
+
+    return 0;
+}
